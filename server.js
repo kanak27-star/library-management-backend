@@ -10,12 +10,19 @@ const countRoutes = require('./routes/countRoutes');
 
 const app = express();
 app.use(express.json());
+const cors = require("cors");
+
 app.use(cors({
-  origin: ['http://localhost:3001', 'http://localhost:3000'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: "https://library-management-frontend-sand.vercel.app",
   credentials: true
 }));
+
+// app.use(cors({
+//   origin: ['http://localhost:3001', 'http://localhost:3000'],
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true
+// }));
 
 // Connect to MongoDB
 mongoose.connect(`${process.env.MONGODB_URI}`, {
