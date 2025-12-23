@@ -9,12 +9,16 @@ const authorRoutes = require('./routes/authorRoutes');
 const countRoutes = require('./routes/countRoutes');
 
 const app = express();
-app.use(express.json());
+
 
 app.use(cors({
-  origin: "https://library-management-frontend-sand.vercel.app",
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
   credentials: true
 }));
+
+app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { dbName: 'Library_DB' });
