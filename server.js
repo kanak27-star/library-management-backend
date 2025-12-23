@@ -10,7 +10,7 @@ const countRoutes = require('./routes/countRoutes');
 
 const app = express();
 app.use(express.json());
-const cors = require("cors");
+
 
 app.use(cors({
   origin: "https://library-management-frontend-sand.vercel.app",
